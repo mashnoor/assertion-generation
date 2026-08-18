@@ -1,0 +1,12 @@
+{
+  "model": "qwen3.5:35b",
+  "provider": "ollama",
+  "ablation": "full",
+  "total_designs": 6,
+  "completed_designs": 6,
+  "skipped_designs": 0,
+  "total_specs": 18,
+  "total_time_s": 3694.8,
+  "avg_syntax": 0.8889,
+  "avg_func": 0.2089
+}

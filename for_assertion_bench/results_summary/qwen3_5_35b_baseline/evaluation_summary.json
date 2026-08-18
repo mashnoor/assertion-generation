@@ -1,0 +1,8 @@
+{
+  "total_designs": 121,
+  "avg_pass_rate": 0.0168,
+  "avg_syntax": 0.0661,
+  "total_proven": 64,
+  "total_assertions": 2037,
+  "overall_pass_rate": 0.0314
+}

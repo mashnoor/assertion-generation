@@ -1,0 +1,4 @@
+method,complexity,num_specs,num_designs,avg_syntax,avg_functionality
+Pipeline,small,342,114,0.9005847953216374,0.8119325947517115
+Pipeline,medium,72,24,0.8333333333333334,0.7013888888888888
+Pipeline,large,162,54,0.7469135802469136,0.6149486836233824

@@ -1,0 +1,2 @@
+method,design_type,num_specs,avg_syntax,avg_functionality,total_proven,total_falsified
+Mistral_24B_Pipeline,,570,0.8035087719298246,0.5012157658639352,419,724

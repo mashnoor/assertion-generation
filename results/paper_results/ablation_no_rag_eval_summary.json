@@ -1,0 +1,17 @@
+{
+  "total_specs": 18,
+  "evaluated": 10,
+  "skipped": 8,
+  "errors": 0,
+  "avg_syntax": 0.9,
+  "avg_functionality": 0.6,
+  "avg_func_relaxed": 0.6,
+  "total_proven": 11,
+  "total_falsified": 4,
+  "total_undetermined": 0,
+  "vacuous_count": 0,
+  "non_vacuous_count": 9,
+  "avg_tool_calls": 0.0,
+  "avg_jg_iterations": 0.0,
+  "avg_wall_time_s": 0.0
+}

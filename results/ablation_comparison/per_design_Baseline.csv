@@ -1,0 +1,7 @@
+design_id,design_type,rtl_chars,module_count,num_specs,avg_syntax,avg_functionality,total_proven,total_falsified,total_undetermined,avg_tool_calls,avg_jg_iterations,avg_wall_time_s,total_wall_time_s
+ni_16_nn_4_ne_8_wd_32_opd_5_0,fsm,1745,0,3,1.0,0.6111111111111112,6,2,0,0,0,0,0
+ni_4_nn_4_ne_4_wd_32_opd_2_0,fsm,1164,0,3,1.0,1.0,4,0,0,0,0,0,0
+ni_4_nn_4_ne_4_wd_32_opd_3_0,fsm,1176,0,3,1.0,0.6666666666666666,2,1,0,0,0,0,0
+ni_4_nn_8_ne_16_wd_32_opd_5_0,fsm,2380,0,3,0.6666666666666666,0.6666666666666666,2,0,0,0,0,0,0
+ns_10-w_128-opd_3-2,pipeline,8636,0,3,0.3333333333333333,0.0,0,1,0,0,0,0,0
+ns_2-w_128-opd_2-0,pipeline,2409,0,3,1.0,0.6666666666666666,2,1,0,0,0,0,0

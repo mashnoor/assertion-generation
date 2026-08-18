@@ -1,0 +1,3 @@
+method,design_type,num_specs,avg_syntax,avg_functionality,total_proven,total_falsified
+Ablation_no_tools,fsm,12,0.5,0.08333333333333333,2,6
+Ablation_no_tools,pipeline,6,0.6666666666666666,0.5,3,1

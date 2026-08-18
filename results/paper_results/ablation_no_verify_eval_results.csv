@@ -1,0 +1,83 @@
+design_id,spec_id,syntax,functionality,func_relaxed,proven,falsified,undetermined,total,vacuity,vacuity_details,jg_iterations,tool_calls,wall_time_s,status
+ni_16_nn_4_ne_8_wd_32_opd_5_0,ni_16_nn_4_ne_8_wd_32_opd_5_0-spec-1,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_16_nn_4_ne_8_wd_32_opd_5_0,ni_16_nn_4_ne_8_wd_32_opd_5_0-spec-2,1.0,0.5,0.5,3,3,0,6,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_16_nn_4_ne_8_wd_32_opd_5_0,ni_16_nn_4_ne_8_wd_32_opd_5_0-spec-3,1.0,0.0,0.0,0,1,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_4_ne_4_wd_32_opd_2_0,ni_4_nn_4_ne_4_wd_32_opd_2_0-spec-1,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_4_ne_4_wd_32_opd_2_0,ni_4_nn_4_ne_4_wd_32_opd_2_0-spec-2,1.0,1.0,1.0,2,0,0,2,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_4_ne_4_wd_32_opd_2_0,ni_4_nn_4_ne_4_wd_32_opd_2_0-spec-3,1.0,0.0,0.0,0,1,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_4_ne_4_wd_32_opd_3_0,ni_4_nn_4_ne_4_wd_32_opd_3_0-spec-1,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_4_ne_4_wd_32_opd_3_0,ni_4_nn_4_ne_4_wd_32_opd_3_0-spec-2,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_4_ne_4_wd_32_opd_3_0,ni_4_nn_4_ne_4_wd_32_opd_3_0-spec-3,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_8_ne_16_wd_32_opd_5_0,ni_4_nn_8_ne_16_wd_32_opd_5_0-spec-1,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_8_ne_16_wd_32_opd_5_0,ni_4_nn_8_ne_16_wd_32_opd_5_0-spec-2,1.0,1.0,1.0,2,0,0,2,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ni_4_nn_8_ne_16_wd_32_opd_5_0,ni_4_nn_8_ne_16_wd_32_opd_5_0-spec-3,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ns_10-w_128-opd_3-2,ns_10-w_128-opd_3-2-spec-1,1.0,1.0,1.0,2,0,0,2,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ns_10-w_128-opd_3-2,ns_10-w_128-opd_3-2-spec-2,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ns_10-w_128-opd_3-2,ns_10-w_128-opd_3-2-spec-3,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ns_2-w_128-opd_2-0,ns_2-w_128-opd_2-0-spec-1,0.0,0.0,0.0,0,0,0,0,not_checked,,0,0,0.0,evaluated
+ns_2-w_128-opd_2-0,ns_2-w_128-opd_2-0-spec-2,1.0,1.0,1.0,1,0,0,1,non_vacuous,"""
+===VACUITY_START===
+[<embedded>] % catch {check_vacuity -all}
+1
+[<embedded>] % puts """,0,0,0.0,evaluated
+ns_2-w_128-opd_2-0,ns_2-w_128-opd_2-0-spec-3,0.0,0.0,0.0,0,0,0,0,not_checked,,0,0,0.0,evaluated

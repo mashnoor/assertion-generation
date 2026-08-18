@@ -1,0 +1,4 @@
+method,complexity,num_specs,num_designs,avg_syntax,avg_functionality
+Full_Pipeline,small,9,3,0.8888888888888888,0.8333333333333334
+Full_Pipeline,medium,6,2,1.0,1.0
+Full_Pipeline,large,3,1,1.0,1.0

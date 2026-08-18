@@ -1,0 +1,818 @@
+id,rtl,type
+ns_2-w_128-opd_2-0,"`define WIDTH 128
+`define DEPTH 4
+
+module exec_unit_0 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);  
+    parameter WIDTH = `WIDTH;
+    localparam DEPTH = 3;
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output [WIDTH-1:0] out_data;
+    output out_vld;
+
+    
+    logic [DEPTH:0] ready;
+    logic [DEPTH:0][WIDTH-1:0] data;
+    assign ready[0] = in_vld;
+    assign data[0] = in_data;
+    assign out_vld = ready[DEPTH];
+    assign out_data = data[DEPTH];
+
+    generate
+        for (genvar i=0; i < DEPTH; i=i+1) begin : gen
+            always @(posedge clk) begin
+                if (!reset_) begin
+                    ready[i+1] <= 'd0;
+                    data[i+1] <= 'd0;
+                end else begin
+                    ready[i+1] <= ready[i];
+                    data[i+1] <= ((data[i] & 8) ^ (data[i] - 9));
+                end
+            end
+        end
+    endgenerate
+endmodule
+
+
+module exec_unit_1 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= (((in_data <<< 2) ^ 10) - 2);
+        end
+    end
+endmodule
+
+
+module pipeline (
+    clk,
+    reset_,
+    in_vld,
+    in_data,
+    out_vld,
+    out_data
+);
+    parameter WIDTH=`WIDTH;
+    parameter DEPTH=`DEPTH;
+    
+    input clk;
+    input reset_;
+    input in_vld;
+    input [WIDTH-1:0] in_data;
+    output out_vld;
+    output [WIDTH-1:0] out_data;
+
+    wire [DEPTH:0] ready;
+    wire [DEPTH:0][WIDTH-1:0] data;
+    assign ready[0] = in_vld;
+    assign data[0] = in_data;
+    assign out_vld = ready[DEPTH];
+    assign out_data = data[DEPTH];
+
+    exec_unit_0 #(.WIDTH(WIDTH)) unit_0 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[0]),
+        .in_vld(ready[0]),
+        .out_data(data[3]), 
+        .out_vld(ready[3])
+    );
+
+    exec_unit_1 #(.WIDTH(WIDTH)) unit_1 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[3]),
+        .in_vld(ready[3]),
+        .out_data(data[4]), 
+        .out_vld(ready[4])
+    );
+endmodule",pipeline
+ns_10-w_128-opd_3-2,"`define WIDTH 128
+`define DEPTH 13
+
+module exec_unit_4 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);  
+    parameter WIDTH = `WIDTH;
+    localparam DEPTH = 4;
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output [WIDTH-1:0] out_data;
+    output out_vld;
+
+    
+    logic [DEPTH:0] ready;
+    logic [DEPTH:0][WIDTH-1:0] data;
+    assign ready[0] = in_vld;
+    assign data[0] = in_data;
+    assign out_vld = ready[DEPTH];
+    assign out_data = data[DEPTH];
+
+    generate
+        for (genvar i=0; i < DEPTH; i=i+1) begin : gen
+            always @(posedge clk) begin
+                if (!reset_) begin
+                    ready[i+1] <= 'd0;
+                    data[i+1] <= 'd0;
+                end else begin
+                    ready[i+1] <= ready[i];
+                    data[i+1] <= ((data[i] | 7) - ((data[i] <<< 7) >>> ((data[i] & 7) | 10)));
+                end
+            end
+        end
+    endgenerate
+endmodule
+
+
+module exec_unit_6 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= (((in_data - 2) >>> 4) >>> 7);
+        end
+    end
+endmodule
+
+module exec_unit_1 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= (((in_data + 1) + (in_data ^ 5)) >>> (((in_data & 1) | 5) <<< 1));
+        end
+    end
+endmodule
+
+module exec_unit_8 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= ((((in_data & 1) <<< (in_data - 1)) | (in_data >>> 1)) & ((in_data & 8) & 7));
+        end
+    end
+endmodule
+
+module exec_unit_9 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= (((in_data >>> 6) - 10) ^ 10);
+        end
+    end
+endmodule
+
+module exec_unit_7 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= ((in_data | 4) ^ 3);
+        end
+    end
+endmodule
+
+module exec_unit_5 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= ((in_data & 9) <<< ((in_data & 5) + (in_data ^ 7)));
+        end
+    end
+endmodule
+
+module exec_unit_0 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= (((in_data >>> 10) + 4) - ((in_data - 7) & (in_data ^ 6)));
+        end
+    end
+endmodule
+
+module exec_unit_2 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= (((in_data >>> 9) + (in_data ^ 10)) <<< (in_data & 2));
+        end
+    end
+endmodule
+
+module exec_unit_3 (
+    clk,
+    reset_,
+    in_data,
+    in_vld,
+    out_data,
+    out_vld
+);
+    parameter WIDTH = `WIDTH;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_data;
+    input in_vld;
+    output reg [WIDTH-1:0] out_data;
+    output reg out_vld;
+
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            out_vld <= 'd0;
+            out_data <= 'd0;
+        end else begin
+            out_vld <= in_vld;
+            out_data <= ((((in_data - 7) ^ (in_data <<< 8)) ^ 5) + 3);
+        end
+    end
+endmodule
+
+
+module pipeline (
+    clk,
+    reset_,
+    in_vld,
+    in_data,
+    out_vld,
+    out_data
+);
+    parameter WIDTH=`WIDTH;
+    parameter DEPTH=`DEPTH;
+    
+    input clk;
+    input reset_;
+    input in_vld;
+    input [WIDTH-1:0] in_data;
+    output out_vld;
+    output [WIDTH-1:0] out_data;
+
+    wire [DEPTH:0] ready;
+    wire [DEPTH:0][WIDTH-1:0] data;
+    assign ready[0] = in_vld;
+    assign data[0] = in_data;
+    assign out_vld = ready[DEPTH];
+    assign out_data = data[DEPTH];
+
+    exec_unit_0 #(.WIDTH(WIDTH)) unit_0 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[0]),
+        .in_vld(ready[0]),
+        .out_data(data[1]), 
+        .out_vld(ready[1])
+    );
+
+    exec_unit_1 #(.WIDTH(WIDTH)) unit_1 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[1]),
+        .in_vld(ready[1]),
+        .out_data(data[2]), 
+        .out_vld(ready[2])
+    );
+
+    exec_unit_2 #(.WIDTH(WIDTH)) unit_2 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[2]),
+        .in_vld(ready[2]),
+        .out_data(data[3]), 
+        .out_vld(ready[3])
+    );
+
+    exec_unit_3 #(.WIDTH(WIDTH)) unit_3 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[3]),
+        .in_vld(ready[3]),
+        .out_data(data[4]), 
+        .out_vld(ready[4])
+    );
+
+    exec_unit_4 #(.WIDTH(WIDTH)) unit_4 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[4]),
+        .in_vld(ready[4]),
+        .out_data(data[8]), 
+        .out_vld(ready[8])
+    );
+
+    exec_unit_5 #(.WIDTH(WIDTH)) unit_5 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[8]),
+        .in_vld(ready[8]),
+        .out_data(data[9]), 
+        .out_vld(ready[9])
+    );
+
+    exec_unit_6 #(.WIDTH(WIDTH)) unit_6 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[9]),
+        .in_vld(ready[9]),
+        .out_data(data[10]), 
+        .out_vld(ready[10])
+    );
+
+    exec_unit_7 #(.WIDTH(WIDTH)) unit_7 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[10]),
+        .in_vld(ready[10]),
+        .out_data(data[11]), 
+        .out_vld(ready[11])
+    );
+
+    exec_unit_8 #(.WIDTH(WIDTH)) unit_8 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[11]),
+        .in_vld(ready[11]),
+        .out_data(data[12]), 
+        .out_vld(ready[12])
+    );
+
+    exec_unit_9 #(.WIDTH(WIDTH)) unit_9 (
+        .clk(clk),
+        .reset_(reset_),
+        .in_data(data[12]),
+        .in_vld(ready[12]),
+        .out_data(data[13]), 
+        .out_vld(ready[13])
+    );
+endmodule",pipeline
+ni_4_nn_4_ne_4_wd_32_opd_2_0,"
+`define WIDTH 32
+module fsm(
+    clk,
+    reset_,
+    in_A,
+    in_B,
+    in_C,
+    in_D,
+    fsm_out
+);
+    parameter WIDTH = `WIDTH;
+    parameter FSM_WIDTH = 2;
+
+    parameter S0 = 2'b00;
+    parameter S1 = 2'b01;
+    parameter S2 = 2'b10;
+    parameter S3 = 2'b11;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_A;
+    input [WIDTH-1:0] in_B;
+    input [WIDTH-1:0] in_C;
+    input [WIDTH-1:0] in_D;
+    output reg [FSM_WIDTH-1:0] fsm_out;
+    reg [FSM_WIDTH-1:0] state, next_state;
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            state <= S0;
+        end else begin
+            state <= next_state;
+        end
+    end
+    always_comb begin
+        case(state)
+            S0: begin
+                next_state = S2;
+            end
+            S1: begin
+                next_state = S3;
+            end
+            S2: begin
+                if (((in_A != in_B) < 'd0)) begin
+                    next_state = S0;
+                end
+                else begin
+                    next_state = S1;
+                end
+            end
+            S3: begin
+            end
+        endcase
+    end
+endmodule",fsm
+ni_4_nn_4_ne_4_wd_32_opd_3_0,"
+`define WIDTH 32
+module fsm(
+    clk,
+    reset_,
+    in_A,
+    in_B,
+    in_C,
+    in_D,
+    fsm_out
+);
+    parameter WIDTH = `WIDTH;
+    parameter FSM_WIDTH = 2;
+
+    parameter S0 = 2'b00;
+    parameter S1 = 2'b01;
+    parameter S2 = 2'b10;
+    parameter S3 = 2'b11;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_A;
+    input [WIDTH-1:0] in_B;
+    input [WIDTH-1:0] in_C;
+    input [WIDTH-1:0] in_D;
+    output reg [FSM_WIDTH-1:0] fsm_out;
+    reg [FSM_WIDTH-1:0] state, next_state;
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            state <= S0;
+        end else begin
+            state <= next_state;
+        end
+    end
+    always_comb begin
+        case(state)
+            S0: begin
+                next_state = S3;
+            end
+            S1: begin
+            end
+            S2: begin
+                next_state = S1;
+            end
+            S3: begin
+                if (((in_A && in_B) || (in_A == in_D))) begin
+                    next_state = S0;
+                end
+                else begin
+                    next_state = S2;
+                end
+            end
+        endcase
+    end
+endmodule",fsm
+ni_4_nn_8_ne_16_wd_32_opd_5_0,"
+`define WIDTH 32
+module fsm(
+    clk,
+    reset_,
+    in_A,
+    in_B,
+    in_C,
+    in_D,
+    fsm_out
+);
+    parameter WIDTH = `WIDTH;
+    parameter FSM_WIDTH = 3;
+
+    parameter S0 = 3'b000;
+    parameter S1 = 3'b001;
+    parameter S2 = 3'b010;
+    parameter S3 = 3'b011;
+    parameter S4 = 3'b100;
+    parameter S5 = 3'b101;
+    parameter S6 = 3'b110;
+    parameter S7 = 3'b111;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_A;
+    input [WIDTH-1:0] in_B;
+    input [WIDTH-1:0] in_C;
+    input [WIDTH-1:0] in_D;
+    output reg [FSM_WIDTH-1:0] fsm_out;
+    reg [FSM_WIDTH-1:0] state, next_state;
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            state <= S0;
+        end else begin
+            state <= next_state;
+        end
+    end
+    always_comb begin
+        case(state)
+            S0: begin
+                if (~((in_C || in_B))) begin
+                    next_state = S3;
+                end
+                else if (((in_C == in_A) == 'd1)) begin
+                    next_state = S4;
+                end
+                else if ((in_B <= 'd1)) begin
+                    next_state = S2;
+                end
+                else begin
+                    next_state = S5;
+                end
+            end
+            S1: begin
+                next_state = S6;
+            end
+            S2: begin
+                if ((in_A <= 'd1)) begin
+                    next_state = S7;
+                end
+                else if ((|(in_C) || in_A)) begin
+                    next_state = S4;
+                end
+                else begin
+                    next_state = S1;
+                end
+            end
+            S3: begin
+                next_state = S2;
+            end
+            S4: begin
+                if ((in_D != (in_A || in_C))) begin
+                    next_state = S5;
+                end
+                else begin
+                    next_state = S6;
+                end
+            end
+            S5: begin
+                next_state = S0;
+            end
+            S6: begin
+                next_state = S0;
+            end
+            S7: begin
+                if (((in_A || in_C) != in_A)) begin
+                    next_state = S1;
+                end
+                else begin
+                    next_state = S2;
+                end
+            end
+        endcase
+    end
+endmodule",fsm
+ni_16_nn_4_ne_8_wd_32_opd_5_0,"
+`define WIDTH 32
+module fsm(
+    clk,
+    reset_,
+    in_A,
+    in_B,
+    in_C,
+    in_D,
+    in_E,
+    in_F,
+    in_G,
+    in_H,
+    in_I,
+    in_J,
+    in_K,
+    in_L,
+    in_M,
+    in_N,
+    in_O,
+    in_P,
+    fsm_out
+);
+    parameter WIDTH = `WIDTH;
+    parameter FSM_WIDTH = 2;
+
+    parameter S0 = 2'b00;
+    parameter S1 = 2'b01;
+    parameter S2 = 2'b10;
+    parameter S3 = 2'b11;
+
+    input clk;
+    input reset_;
+    input [WIDTH-1:0] in_A;
+    input [WIDTH-1:0] in_B;
+    input [WIDTH-1:0] in_C;
+    input [WIDTH-1:0] in_D;
+    input [WIDTH-1:0] in_E;
+    input [WIDTH-1:0] in_F;
+    input [WIDTH-1:0] in_G;
+    input [WIDTH-1:0] in_H;
+    input [WIDTH-1:0] in_I;
+    input [WIDTH-1:0] in_J;
+    input [WIDTH-1:0] in_K;
+    input [WIDTH-1:0] in_L;
+    input [WIDTH-1:0] in_M;
+    input [WIDTH-1:0] in_N;
+    input [WIDTH-1:0] in_O;
+    input [WIDTH-1:0] in_P;
+    output reg [FSM_WIDTH-1:0] fsm_out;
+    reg [FSM_WIDTH-1:0] state, next_state;
+    always_ff @(posedge clk or negedge reset_) begin
+        if (!reset_) begin
+            state <= S0;
+        end else begin
+            state <= next_state;
+        end
+    end
+    always_comb begin
+        case(state)
+            S0: begin
+                next_state = S1;
+            end
+            S1: begin
+                if ((~^(in_B) ^ in_N)) begin
+                    next_state = S2;
+                end
+                else if (^(in_E)) begin
+                    next_state = S3;
+                end
+                else begin
+                    next_state = S0;
+                end
+            end
+            S2: begin
+                next_state = S0;
+            end
+            S3: begin
+                next_state = S1;
+            end
+        endcase
+    end
+endmodule",fsm

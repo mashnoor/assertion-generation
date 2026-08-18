@@ -1,0 +1,2 @@
+method,design_type,num_specs,avg_syntax,avg_functionality,total_proven,total_falsified
+Ablation_no_rag,,108,0.7407407407407407,0.5779320987654321,80,24

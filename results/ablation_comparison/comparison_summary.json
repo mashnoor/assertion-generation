@@ -1,0 +1,80 @@
+[
+  {
+    "method": "Full_Pipeline",
+    "num_specs": 18,
+    "num_designs": 6,
+    "avg_syntax": 0.9444444444444444,
+    "avg_functionality": 0.9166666666666666,
+    "total_proven": 23,
+    "total_falsified": 3,
+    "total_undetermined": 0,
+    "avg_tool_calls": 5.111111111111111,
+    "avg_jg_iterations": 1.2777777777777777,
+    "avg_wall_time_s": 107.40198976463742
+  },
+  {
+    "method": "Baseline",
+    "num_specs": 18,
+    "num_designs": 6,
+    "avg_syntax": 0.8333333333333334,
+    "avg_functionality": 0.6018518518518519,
+    "total_proven": 16,
+    "total_falsified": 5,
+    "total_undetermined": 0,
+    "avg_tool_calls": 0,
+    "avg_jg_iterations": 0,
+    "avg_wall_time_s": 0
+  },
+  {
+    "method": "Ablation_no_verify",
+    "num_specs": 18,
+    "num_designs": 6,
+    "avg_syntax": 0.8888888888888888,
+    "avg_functionality": 0.75,
+    "total_proven": 19,
+    "total_falsified": 5,
+    "total_undetermined": 0,
+    "avg_tool_calls": 4.222222222222222,
+    "avg_jg_iterations": 0,
+    "avg_wall_time_s": 50.94197630882263
+  },
+  {
+    "method": "Ablation_no_jg_tools",
+    "num_specs": 18,
+    "num_designs": 6,
+    "avg_syntax": 0.7222222222222222,
+    "avg_functionality": 0.5,
+    "total_proven": 11,
+    "total_falsified": 4,
+    "total_undetermined": 0,
+    "avg_tool_calls": 2.888888888888889,
+    "avg_jg_iterations": 0,
+    "avg_wall_time_s": 138.63742744922638
+  },
+  {
+    "method": "Ablation_no_rag",
+    "num_specs": 18,
+    "num_designs": 6,
+    "avg_syntax": 0.5,
+    "avg_functionality": 0.3333333333333333,
+    "total_proven": 11,
+    "total_falsified": 4,
+    "total_undetermined": 0,
+    "avg_tool_calls": 3.0555555555555554,
+    "avg_jg_iterations": 1.2777777777777777,
+    "avg_wall_time_s": 281.6291009982427
+  },
+  {
+    "method": "Ablation_no_tools",
+    "num_specs": 18,
+    "num_designs": 6,
+    "avg_syntax": 0.5555555555555556,
+    "avg_functionality": 0.2222222222222222,
+    "total_proven": 5,
+    "total_falsified": 7,
+    "total_undetermined": 0,
+    "avg_tool_calls": 0,
+    "avg_jg_iterations": 0,
+    "avg_wall_time_s": 115.43952209419675
+  }
+]

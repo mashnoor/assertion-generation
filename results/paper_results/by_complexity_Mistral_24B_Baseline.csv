@@ -1,0 +1,2 @@
+method,complexity,num_specs,num_designs,avg_syntax,avg_functionality
+Mistral_24B_Baseline,small,558,186,0.6577060931899642,0.310752688172043

@@ -1,0 +1,4 @@
+method,complexity,num_specs,num_designs,avg_syntax,avg_functionality
+Baseline,small,9,3,1.0,0.7592592592592593
+Baseline,medium,6,2,0.8333333333333334,0.6666666666666666
+Baseline,large,3,1,0.3333333333333333,0.0

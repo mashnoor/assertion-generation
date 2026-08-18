@@ -1,0 +1,86 @@
+{
+  "model": "qwen3.5:35b",
+  "provider": "ollama",
+  "k_shot": 5,
+  "total_designs": 8,
+  "total_assertions_generated": 97,
+  "results": [
+    {
+      "design_id": "communication_controller_1000base-x_ieee_802.3-2008_clause_36-physical_codi__ge_1000baseX_rx",
+      "module_name": "ge_1000baseX_rx",
+      "clock": "ck",
+      "reset": "reset",
+      "status": "ok",
+      "total_generated": 10,
+      "ground_truth_count": 15689,
+      "wall_time_s": 119.3
+    },
+    {
+      "design_id": "communication_controller_100_mb-s_ethernet_mac_layer_switch__eth_rxethmac",
+      "module_name": "eth_rxethmac",
+      "clock": "MRxClk",
+      "reset": "Reset",
+      "status": "ok",
+      "total_generated": 14,
+      "ground_truth_count": 82927,
+      "wall_time_s": 81.1
+    },
+    {
+      "design_id": "communication_controller_100_mb-s_ethernet_mac_layer_switch__eth_maccontrol",
+      "module_name": "eth_maccontrol",
+      "clock": "MTxClk",
+      "reset": "TxReset",
+      "status": "ok",
+      "total_generated": 19,
+      "ground_truth_count": 142922,
+      "wall_time_s": 119.0
+    },
+    {
+      "design_id": "communication_controller_apb_to_i2c__module_i2c",
+      "module_name": "module_i2c",
+      "clock": "PCLK",
+      "reset": "PRESETn",
+      "status": "ok",
+      "total_generated": 10,
+      "ground_truth_count": 108,
+      "wall_time_s": 95.1
+    },
+    {
+      "design_id": "arithmetic_core_double_fpu_verilog__fpu_sub",
+      "module_name": "fpu_sub",
+      "clock": "clk",
+      "reset": "rst",
+      "status": "ok",
+      "total_generated": 8,
+      "ground_truth_count": 5026,
+      "wall_time_s": 98.3
+    },
+    {
+      "design_id": "arithmetic_core_cavlc_decoder__cavlc_fsm",
+      "module_name": "cavlc_fsm",
+      "clock": "clk",
+      "reset": "rst_n",
+      "status": "ok",
+      "total_generated": 14,
+      "ground_truth_count": 5603,
+      "wall_time_s": 62.0
+    },
+    {
+      "design_id": "arithmetic_core_cavlc_decoder__cavlc_top",
+      "module_name": "cavlc_top",
+      "clock": "clk",
+      "reset": "rst_n",
+      "status": "ok",
+      "total_generated": 22,
+      "ground_truth_count": 121314,
+      "wall_time_s": 50.3
+    },
+    {
+      "design_id": "arithmetic_core_double_fpu_verilog__fpu_exceptions",
+      "module_name": "fpu_exceptions",
+      "status": "timeout",
+      "total_generated": 0,
+      "wall_time_s": 600.0381593704224
+    }
+  ]
+}

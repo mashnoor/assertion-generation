@@ -1,0 +1,4 @@
+method,complexity,num_specs,num_designs,avg_syntax,avg_functionality
+Ablation_no_tools,small,57,19,0.631578947368421,0.2719298245614035
+Ablation_no_tools,medium,21,7,0.5238095238095238,0.3492063492063492
+Ablation_no_tools,large,30,10,0.5666666666666667,0.3333333333333333

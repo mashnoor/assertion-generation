@@ -1,0 +1,3 @@
+method,design_type,num_specs,avg_syntax,avg_functionality,total_proven,total_falsified
+Full_Pipeline,fsm,12,0.9166666666666666,0.875,15,3
+Full_Pipeline,pipeline,6,1.0,1.0,8,0

@@ -1,0 +1,2 @@
+method,complexity,num_specs,num_designs,avg_syntax,avg_functionality
+Mistral_24B_Pipeline,small,570,190,0.8035087719298246,0.5012157658639352

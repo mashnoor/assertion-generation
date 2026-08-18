@@ -1,0 +1,41 @@
+# --- Python ---
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# --- External clones / vendored benchmark data (fetch separately, see README) ---
+/FVEval/
+
+# --- Vector DB / runtime state ---
+chroma_db/
+chroma_db_cursor_task_*/
+checkpoint.json
+chunks/*.md.lock
+
+# --- Raw experiment outputs (large, machine-specific; keep only aggregated tables) ---
+results/*
+!results/paper_results/
+!results/ablation_comparison/
+
+for_assertion_bench/results/*
+!for_assertion_bench/results_summary/
+for_assertion_bench/unsloth_compiled_cache/
+
+# --- SLURM job logs ---
+*.out
+*.err
+slurm-*.log
+
+# --- Reference/literature PDFs used while writing the paper (not this project's own IP) ---
+reference_papers/
+sample_papers/
+
+# --- Paper LaTeX source (kept out of the public repo) ---
+writing_paper/
+
+# --- OS/editor cruft ---
+.DS_Store
+*.swp

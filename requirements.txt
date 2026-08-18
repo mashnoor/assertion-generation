@@ -1,0 +1,20 @@
+# Core pipeline (agent, tools, AST indexing, evaluation)
+pandas
+requests
+pyslang
+langchain-core
+langchain-chroma
+chromadb
+pysqlite3-binary   # only needed on systems with an old system sqlite3 (e.g. some HPC login nodes)
+
+# Figure / table generation for the paper (writing_paper/, export_results.py)
+matplotlib
+numpy
+
+# --- Optional: only needed for the AssertionBench baselines that run local HF/vLLM
+#     models directly instead of through Ollama (for_assertion_bench/*_hf.sh, *_vllm.sh) ---
+# torch
+# transformers
+# trl
+# unsloth-zoo
+# vllm

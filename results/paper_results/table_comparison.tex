@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\caption{Comparison of SVA generation approaches}
+\begin{tabular}{lrrrrr}
+\toprule
+method & num\_specs & avg\_syntax & avg\_functionality & total\_proven & total\_falsified \\
+\midrule
+Pipeline & 576 & 0.849 & 0.743 & 790 & 260 \\
+Baseline & 576 & 0.783 & 0.432 & 445 & 246 \\
+Mistral\_24B\_Pipeline & 570 & 0.804 & 0.501 & 419 & 724 \\
+Mistral\_24B\_Baseline & 558 & 0.658 & 0.311 & 249 & 200 \\
+Ablation\_no\_rag & 108 & 0.741 & 0.578 & 80 & 24 \\
+Ablation\_no\_verify & 108 & 0.806 & 0.629 & 99 & 28 \\
+Ablation\_no\_jg\_tools & 108 & 0.741 & 0.541 & 72 & 27 \\
+Ablation\_no\_tools & 108 & 0.593 & 0.304 & 39 & 40 \\
+\bottomrule
+\end{tabular}
+\end{table}

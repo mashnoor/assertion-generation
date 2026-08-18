@@ -1,0 +1,2 @@
+method,design_type,num_specs,avg_syntax,avg_functionality,total_proven,total_falsified
+Mistral_24B_Baseline,,558,0.6577060931899642,0.310752688172043,249,200
